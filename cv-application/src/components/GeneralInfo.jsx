@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function displayGeneralInfo({firstName}) {
+function InfoSubmitButton({firstName, lastName, phone, email}) {
     return (
     <h1>{firstName}</h1>
     )
@@ -14,6 +14,7 @@ export default function GeneralInfoForm() {
 
     function handleFirstNameChange(e) {
         setFirstName(e.target.value);
+        
     }
 
     function handleLastNameChange(e) {
@@ -50,6 +51,9 @@ export default function GeneralInfoForm() {
                 value={email}
                 onChange={handleEmailChange} 
             /> 
+            <InfoSubmitButton firstName={firstName} />
+            {/* <submitbutton with PROPS here> */}
+            {/* SUBMIT BUTTON THAT RUNS THE OTHER ONE WITH PROPS display (NAME, PHONE, EMAIL) {} */}
             
         </form>
     )
