@@ -21,8 +21,7 @@ export default function GeneralInfoForm() {
     const [email, setEmail] = useState ("")
 
     function handleFirstNameChange(e) {
-        setFirstName(e.target.value);
-        
+        setFirstName(e.target.value);       
     }
 
     function handleLastNameChange(e) {
@@ -62,11 +61,13 @@ export default function GeneralInfoForm() {
                         onChange={handleLastNameChange} 
                     />
                     <input
+                        type='tel'
                         placeholder='xxx-xxx-xxxx'
                         value={phoneNum}
                         onChange={handlePhoneChange}
                     />
                     <input 
+                        type='email'
                         placeholder='xxxx@xxxx.com'
                         value={email}
                         onChange={handleEmailChange} 

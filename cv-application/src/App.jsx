@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import GeneralInfoForm from './components/GeneralInfo'
 import EducationForm from './components/Education'
@@ -11,10 +9,21 @@ function App() {
 
   return (
     <>
-      <div>
-        <GeneralInfoForm />
-        <EducationForm />
-        <WorkExperienceForm />
+      <div className="app">
+        <h1>Resume Builder</h1>
+        <div className="app-body">
+          <div className="app-form-section">
+            <h2>Input Details</h2>
+            <div className="app-forms">
+              <GeneralInfoForm />
+              <EducationForm />
+              <WorkExperienceForm />
+            </div>
+          </div>
+          <div className="displaySidebar">
+            <h2>Resume Preview</h2>
+          </div>
+        </div>
       </div>
     </>
   )
