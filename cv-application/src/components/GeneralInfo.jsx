@@ -1,8 +1,16 @@
 import { useState } from 'react';
+import '../styles/GeneralInfoStyles.css'
 
-function InfoSubmitButton({firstName, lastName, phone, email}) {
+// put this in the app????
+function InfoSubmitButton({firstName ='*First Name', lastName = '*Last Name', phone = '*Phone', email = '*Email'}) {
     return (
-    <h1>{firstName}</h1>
+    <div className="generalInfoDisplay">
+        <h1 className="aboutSection">About</h1>
+            <h3>{firstName}</h3>
+            <h3>{lastName}</h3>
+            <h3>{phone}</h3>
+            <h3>{email}</h3>
+    </div>
     )
 }
 
@@ -29,33 +37,47 @@ export default function GeneralInfoForm() {
         setEmail(e.target.value);
     }
 
-    return (
-        <form class="genInfoForm" onSubmit={e => e.preventDefault()}>
-            <input
-                placeholder='First Name'
-                value={firstName}
-                onChange={handleFirstNameChange}
-            />
-            <input 
-                placeholder='Last Name'
-                value={lastName}
-                onChange={handleLastNameChange} 
-            />
-            <input
-                placeholder='xxx-xxx-xxxx'
-                value={phoneNum}
-                onChange={handlePhoneChange}
-            />
-            <input 
-                placeholder='xxxx@xxxx.com'
-                value={email}
-                onChange={handleEmailChange} 
-            /> 
+    const displayValues = () => {
+        console.log("h")
+        return (
+            <div className="infoSubmit">
+                <h1>hi</h1>
             <InfoSubmitButton firstName={firstName} />
-            {/* <submitbutton with PROPS here> */}
-            {/* SUBMIT BUTTON THAT RUNS THE OTHER ONE WITH PROPS display (NAME, PHONE, EMAIL) {} */}
-            
-        </form>
+            </div>
+        )
+    }
+
+    return (
+        <div className="generalInformation">
+            <h2>General Information</h2>
+                <form className="genInfoForm" onSubmit={e => e.preventDefault()}>
+                    <input
+                        placeholder='First Name'
+                        value={firstName}
+                        onChange={handleFirstNameChange}
+                    />
+                    <input 
+                        placeholder='Last Name'
+                        value={lastName}
+                        onChange={handleLastNameChange} 
+                    />
+                    <input
+                        placeholder='xxx-xxx-xxxx'
+                        value={phoneNum}
+                        onChange={handlePhoneChange}
+                    />
+                    <input 
+                        placeholder='xxxx@xxxx.com'
+                        value={email}
+                        onChange={handleEmailChange} 
+                    />
+                    <button onClick={displayValues}>Submit</button> 
+                    {/* <InfoSubmitButton firstName={firstName} lastName={lastName} phone={phoneNum} email={email} /> */}
+                    {/* <submitbutton with PROPS here> */}
+                    {/* SUBMIT BUTTON THAT RUNS THE OTHER ONE WITH PROPS display (NAME, PHONE, EMAIL) {} */}
+                    
+                </form>
+        </div>
     )
 }
 

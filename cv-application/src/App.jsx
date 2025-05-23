@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import GeneralInfoForm from './components/GeneralInfo'
+import EducationForm from './components/Education'
+import WorkExperienceForm from './components/WorkExperience'
 
 
 function App() {
@@ -11,6 +13,8 @@ function App() {
     <>
       <div>
         <GeneralInfoForm />
+        <EducationForm />
+        <WorkExperienceForm />
       </div>
     </>
   )
