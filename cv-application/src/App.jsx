@@ -22,6 +22,9 @@ function App() {
           </div>
           <div className="displaySidebar">
             <h2>Resume Preview</h2>
+            <h3>General Information</h3>
+            <h4>dfas</h4>
+            {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>
         </div>
       </div>

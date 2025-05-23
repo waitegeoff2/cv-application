@@ -19,6 +19,8 @@ export default function GeneralInfoForm() {
     const [lastName, setLastName] = useState ("");
     const [phoneNum, setPhone] = useState ("");
     const [email, setEmail] = useState ("")
+    const [editing, setEditing] = useState(true);
+    //if done editing, press button, change to false and display the values instead of the forms. 
 
     function handleFirstNameChange(e) {
         setFirstName(e.target.value);       
@@ -36,8 +38,13 @@ export default function GeneralInfoForm() {
         setEmail(e.target.value);
     }
 
+    function handleEditingChange() {
+        setEditing(true);
+    }
+
     const displayValues = () => {
         console.log("h")
+        setEditing(false);
         return (
             <div className="infoSubmit">
                 <h1>hi</h1>
@@ -72,7 +79,11 @@ export default function GeneralInfoForm() {
                         value={email}
                         onChange={handleEmailChange} 
                     />
-                    <button onClick={displayValues}>Submit</button> 
+                    { editing ? (
+                    <button onClick={displayValues}>Submit</button>
+                    ) : (
+                    <button onClick={handleEditingChange}>Edit</button>
+                    )}
                     {/* <InfoSubmitButton firstName={firstName} lastName={lastName} phone={phoneNum} email={email} /> */}
                     {/* <submitbutton with PROPS here> */}
                     {/* SUBMIT BUTTON THAT RUNS THE OTHER ONE WITH PROPS display (NAME, PHONE, EMAIL) {} */}
