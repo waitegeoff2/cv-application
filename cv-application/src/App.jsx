@@ -6,6 +6,12 @@ import WorkExperienceForm from './components/WorkExperience'
 
 
 function App() {
+  // you are adding STATE VARIABLES HERE (info, setinfo)
+  //AND PASSING IT through general info form to get new variables which you display below
+  //it's the same as how you did it in general info form with other variables
+  //take info, change it to set info
+
+  
 
   return (
     <>
@@ -16,14 +22,12 @@ function App() {
             <h2>Input Details</h2>
             <div className="app-forms">
               <GeneralInfoForm />
-              <EducationForm />
-              <WorkExperienceForm />
             </div>
           </div>
           <div className="displaySidebar">
             <h2>Resume Preview</h2>
             <h3>General Information</h3>
-            <h4>dfas</h4>
+            <h4></h4>
             {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>
         </div>
