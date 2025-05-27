@@ -23,6 +23,14 @@ export default function WorkExperienceForm({company, setCompany, position, setPo
         setEndWork(e.target.value);
     }
 
+    function handleEdit() {
+        setCompany('')
+        setPosition('')
+        setResponsibility('')
+        setStartWork('')
+        setEndWork('')
+    }
+
     return (
         <div className="workFormSection">
             <h2 className="workTitle">Work Experience</h2>
@@ -54,6 +62,7 @@ export default function WorkExperienceForm({company, setCompany, position, setPo
                     value={endWork}
                     onChange={handleDateEndWorkChange}
                 />
+                <button onClick={handleEdit}>Restart section</button>
             </form>
         </div>
     )

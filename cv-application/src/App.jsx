@@ -11,14 +11,14 @@ function App() {
   //pass it in to change it and then display it below
 
   //states for general info
-  const [firstName, setFirstName] = useState('First');
-  const [lastName, setLastName] = useState('Last');
-  const [phoneNum, setPhoneNum] = useState('phone');
-  const [email, setEmail] = useState('email');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
+  const [email, setEmail] = useState('');
 
   //states for education
-  const [schoolName, setSchoolName] = useState('School');
-  const [studyName, setStudyName] = useState('Area of Study');
+  const [schoolName, setSchoolName] = useState('');
+  const [studyName, setStudyName] = useState('');
   const [dateStart, setDateStart] = useState('');
   const [dateEnd, setDateEnd] = useState('');
 
@@ -51,7 +51,7 @@ function App() {
               <h3 className="preview-education-title">Education</h3>
               <div className="study-and-year">
                 <h4 className="preview-study">{studyName}</h4>
-                <h4 className="preview-study-year">{dateEnd}</h4>
+                <h4 className="preview-study-year">{dateStart}-{dateEnd}</h4>
               </div>
               <h4>{schoolName}</h4>
             </div>

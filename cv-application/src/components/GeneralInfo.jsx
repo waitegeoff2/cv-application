@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../styles/GeneralInfoStyles.css'
 
 export default function GeneralInfoForm({first, setFirst, last, setLast, phone, setPhone, mail, setMail}) {   
@@ -17,6 +16,13 @@ export default function GeneralInfoForm({first, setFirst, last, setLast, phone, 
 
     function handleEmailChange(e) {
         setMail(e.target.value);
+    }
+
+    function handleEdit() {
+        setFirst('')
+        setLast('')
+        setPhone('')
+        setMail('')
     }
 
     return (
@@ -50,12 +56,7 @@ export default function GeneralInfoForm({first, setFirst, last, setLast, phone, 
                         onChange={handleEmailChange}                    
                        
                     />
-                   
-                                 
-                    {/* <InfoSubmitButton firstName={firstName} lastName={lastName} phone={phoneNum} email={email} /> */}
-                    {/* <submitbutton with PROPS here> */}
-                    {/* SUBMIT BUTTON THAT RUNS THE OTHER ONE WITH PROPS display (NAME, PHONE, EMAIL) {} */}
-                    
+                    <button onClick={handleEdit}>Restart section</button>
                 </form>
         </div>
     )

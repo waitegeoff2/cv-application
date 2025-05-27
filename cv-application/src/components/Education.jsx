@@ -20,6 +20,13 @@ export default function EducationForm({school, setSchool, study, setStudy, start
         setEnd(e.target.value);
     }
 
+    function handleEdit() {
+        setSchool('')
+        setStudy('')
+        setStart('')
+        setEnd('')
+    }
+
     return (
         <div className="educationFormSection">
             <h2 className="educationTitle">Education</h2>
@@ -46,6 +53,7 @@ export default function EducationForm({school, setSchool, study, setStudy, start
                     value={end}
                     onChange={handleDateEndChange}
                 />
+                <button onClick={handleEdit}>Restart section</button>
             </form>
         </div>
     )
