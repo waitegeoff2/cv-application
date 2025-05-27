@@ -22,20 +22,27 @@ function App() {
   const [dateStart, setDateStart] = useState('');
   const [dateEnd, setDateEnd] = useState('');
 
+  //states for work experience
+  const [companyName, setCompanyName] = useState("");
+  const [positionName, setPositionName] = useState("");
+  const [mainResponsibilities, setMainResponsibilities] = useState("");
+  const [dateStartWork, setDateStartWork] = useState("");
+  const [dateEndWork, setDateEndWork] = useState("");
+
   return (
     <>
       <div className="app">
-        <h1>Resume Builder</h1>
+        <h1 className='app-title'>Resume Builder</h1>
         <div className="app-body">
           <div className="app-form-section">
             <h2>Input Your Details</h2>
             <div className="app-forms">
               <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
               <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} />
+              <WorkExperienceForm company={companyName} setCompany={setCompanyName} position={positionName} setPosition={setPositionName} responsibility={mainResponsibilities} setResponsibility={setMainResponsibilities} startWork={dateStartWork} setStartWork={setDateStartWork} endWork={dateEndWork} setEndWork={setDateEndWork} />
             </div>
           </div>
           <div className="displaySidebar">
-            <h2>Resume Preview</h2>
             <div className="preview-gen-info">
               <h2 className='preview-name'>{firstName} {lastName}</h2>
               <h4 className="phone-email">{phoneNum}. {email}</h4>
@@ -47,6 +54,15 @@ function App() {
                 <h4 className="preview-study-year">{dateEnd}</h4>
               </div>
               <h4>{schoolName}</h4>
+            </div>
+            <div className="preview-work-experience">
+              <h3 className="work-title">Work Experience</h3>
+              <div className="title-and-year">
+                <h4 className="preview-position">{positionName}</h4>
+                <h4 className="preview-position-dates">{dateStartWork}-{dateEndWork}</h4>
+              </div>
+              <h4 className="preview-company">{companyName}</h4>
+              <p className="preview-responsibilities">{mainResponsibilities}</p>
             </div>
             {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>

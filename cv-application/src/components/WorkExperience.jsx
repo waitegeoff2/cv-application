@@ -1,31 +1,26 @@
 import { useState } from 'react';
 import '../styles/WorkExperienceStyles.css'
 
-export default function WorkExperienceForm() {
-    const [companyName, setCompanyName] = useState("");
-    const [positionName, setPositionName] = useState("");
-    const [dateStartWork, setDateStartWork] = useState("");
-    const [mainResponsibilities, setMainResponsibilities] = useState("");
-    const [dateEndWork, setDateEndWork] = useState("");
+export default function WorkExperienceForm({company, setCompany, position, setPosition, responsibility, setResponsibility, startWork, setStartWork, endWork, setEndWork}) {
 
     function handleCompanyChange(e) {
-        setCompanyName(e.target.value); 
+        setCompany(e.target.value); 
     }
 
     function handlePositionChange(e) {
-        setPositionName(e.target.value);
+        setPosition(e.target.value);
     }
 
     function handleResponsibilitiesChange(e) {
-        setMainResponsibilities(e.target.value);
+        setResponsibility(e.target.value);
     }
 
     function handleDateStartWorkChange(e) {
-        setDateStartWork(e.target.value);
+        setStartWork(e.target.value);
     }
 
     function handleDateEndWorkChange(e) {
-        setDateEndWork(e.target.value);
+        setEndWork(e.target.value);
     }
 
     return (
@@ -34,29 +29,29 @@ export default function WorkExperienceForm() {
             <form className="workForm" onSubmit={e => e.preventDefault()}>
                 <input
                     placeholder='Company'
-                    value={companyName}
+                    value={company}
                     onChange={handleCompanyChange}
                 />
                 <input
                     placeholder='Position'
-                    value={positionName}
+                    value={position}
                     onChange={handlePositionChange}
                 />
                 <textarea
                     placeholder='Main responsibilities'
-                    value={mainResponsibilities}
+                    value={responsibility}
                     onChange={handleResponsibilitiesChange}
                 />
                 <input
-                    type="date"
-                    placeholder='Date start'
-                    value={dateStartWork}
+                    type="number"
+                    placeholder='year start'
+                    value={startWork}
                     onChange={handleDateStartWorkChange}
                 />
                 <input
-                    type="date"
-                    placeholder='Date end'
-                    value={dateEndWork}
+                    type="number"
+                    placeholder='year end'
+                    value={endWork}
                     onChange={handleDateEndWorkChange}
                 />
             </form>
