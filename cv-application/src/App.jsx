@@ -11,10 +11,16 @@ function App() {
   //pass it in to change it and then display it below
 
   //states for general info
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNum, setPhoneNum] = useState('');
-  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('First');
+  const [lastName, setLastName] = useState('Last');
+  const [phoneNum, setPhoneNum] = useState('phone');
+  const [email, setEmail] = useState('email');
+
+  //states for education
+  const [schoolName, setSchoolName] = useState('School');
+  const [studyName, setStudyName] = useState('Area of Study');
+  const [dateStart, setDateStart] = useState('');
+  const [dateEnd, setDateEnd] = useState('');
 
   return (
     <>
@@ -22,9 +28,10 @@ function App() {
         <h1>Resume Builder</h1>
         <div className="app-body">
           <div className="app-form-section">
-            <h2>Input Details</h2>
+            <h2>Input Your Details</h2>
             <div className="app-forms">
               <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
+              <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} />
             </div>
           </div>
           <div className="displaySidebar">
@@ -32,6 +39,14 @@ function App() {
             <div className="preview-gen-info">
               <h2 className='preview-name'>{firstName} {lastName}</h2>
               <h4 className="phone-email">{phoneNum}. {email}</h4>
+            </div>
+            <div className="preview-education">
+              <h3 className="preview-education-title">Education</h3>
+              <div className="study-and-year">
+                <h4 className="preview-study">{studyName}</h4>
+                <h4 className="preview-study-year">{dateEnd}</h4>
+              </div>
+              <h4>{schoolName}</h4>
             </div>
             {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>

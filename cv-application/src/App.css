@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   min-width: 50%;
+  
   gap: 30px;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -44,5 +45,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.preview-name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.preview-study {
+  font-style: italic;
+}
+
+.study-and-year {
+  display: flex;
+  justify-content: space-between;
 }
 

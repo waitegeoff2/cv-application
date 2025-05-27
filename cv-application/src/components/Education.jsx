@@ -1,27 +1,23 @@
 import { useState } from 'react';
 import '../styles/EducationStyles.css'
 
-export default function EducationForm() {
-    const [schoolName, setSchoolName] = useState("");
-    const [studyName, setStudyName] = useState("");
-    const [dateStart, setDateStart] = useState("");
-    const [dateEnd, setDateEnd] = useState("");
+export default function EducationForm({school, setSchool, study, setStudy, start, setStart, end, setEnd}) {
 
     function handleSchoolChange(e) {
-        setSchoolName(e.target.value);
+        setSchool(e.target.value);
         
     }
 
     function handleStudyChange(e) {
-        setStudyName(e.target.value);
+        setStudy(e.target.value);
     }
 
     function handleDateStartChange(e) {
-        setDateStart(e.target.value);
+        setStart(e.target.value);
     }
 
     function handleDateEndChange(e) {
-        setDateEnd(e.target.value);
+        setEnd(e.target.value);
     }
 
     return (
@@ -30,24 +26,24 @@ export default function EducationForm() {
             <form className="educationForm" onSubmit={e => e.preventDefault()}>
                 <input
                     placeholder='School'
-                    value={schoolName}
+                    value={school}
                     onChange={handleSchoolChange}
                 />
                 <input
                     placeholder='Area of study'
-                    value={studyName}
+                    value={study}
                     onChange={handleStudyChange}
                 />
                 <input
-                    type="date"
-                    placeholder='Date start'
-                    value={dateStart}
+                    type="number"
+                    placeholder='Year started'
+                    value={start}
                     onChange={handleDateStartChange}
                 />
                 <input
-                    type="date"
-                    placeholder='Date end'
-                    value={dateEnd}
+                    type="number"
+                    placeholder='Year finished'
+                    value={end}
                     onChange={handleDateEndChange}
                 />
             </form>
