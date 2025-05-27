@@ -7,11 +7,14 @@ import WorkExperienceForm from './components/WorkExperience'
 
 function App() {
   // you are adding STATE VARIABLES HERE (info, setinfo)
-  //AND PASSING IT through general info form to get new variables which you display below
-  //it's the same as how you did it in general info form with other variables
-  //take info, change it to set info
+  //keep the info at the top of the app
+  //pass it in to change it and then display it below
 
-  
+  //states for general info
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <>
@@ -21,13 +24,15 @@ function App() {
           <div className="app-form-section">
             <h2>Input Details</h2>
             <div className="app-forms">
-              <GeneralInfoForm />
+              <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
             </div>
           </div>
           <div className="displaySidebar">
             <h2>Resume Preview</h2>
-            <h3>General Information</h3>
-            <h4></h4>
+            <div className="preview-gen-info">
+              <h2 className='preview-name'>{firstName} {lastName}</h2>
+              <h4 className="phone-email">{phoneNum}. {email}</h4>
+            </div>
             {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>
         </div>
