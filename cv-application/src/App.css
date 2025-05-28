@@ -8,8 +8,12 @@ body {
 }
 
 button {
-  background-color: rgb(230, 198, 230);
+  background-color: rgb(242, 175, 242);
   border-radius: 5px;
+}
+
+p {
+  font-size: 14px;
 }
 
 /* FORM SECTION */
@@ -82,14 +86,13 @@ button {
 
 .preview-name {
   font-weight: bold;
-  font-style: italic;
 }
 
 .preview-study {
   font-style: italic;
 }
 
-.edu-gen-items {
+.gen-items {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -105,4 +108,10 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.preview-position-dates {
+  font-style: normal;
+}
+
+
 

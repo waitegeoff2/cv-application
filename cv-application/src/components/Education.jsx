@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import '../styles/EducationStyles.css'
 
 export default function EducationForm({eduInfo, setEduInfo}) {
-    console.log(eduInfo[0])
 
     //first, copies the state array cause we don't mutate arrays
     //goes to the index and field(object property) and then changes that to the value

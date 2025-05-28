@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../styles/WorkExperienceStyles.css'
 
 export default function WorkExperienceForm({workExperience, setWorkExperience}) {
