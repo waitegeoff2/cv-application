@@ -5,11 +5,12 @@ export default function EducationForm({eduInfo, setEduInfo}) {
     //first, copies the state array cause we don't mutate arrays
     //goes to the index and field(object property) and then changes that to the value
     //set the state to the new array with the new value
+    console.log(eduInfo)
+    
     function handleChange(index, value, field) {
         //copy and update, don't mutate original
         const newEducation = [...eduInfo];
         newEducation[index][field] = value;
-        console.log(newEducation)
         setEduInfo(newEducation)   
     }
 
@@ -17,8 +18,12 @@ export default function EducationForm({eduInfo, setEduInfo}) {
         setEduInfo([...eduInfo, {school: '', study: '', startDate: '', endDate: '',}])
     }
 
-    function handleRemoveEducation() {
-
+    function handleRemoveEducation(index) {
+        const newEducation = [...eduInfo]
+        newEducation.splice(index, 1)
+        console.log(newEducation)
+        setEduInfo(newEducation)
+        //going into the eduinfo array and splicing out that index
     }
 
     return (
@@ -54,7 +59,7 @@ export default function EducationForm({eduInfo, setEduInfo}) {
                         />
                         {/* <button onClick={handleEdit}>Restart section</button> */}
                         <button onClick={handleNewEducation}>Add new</button>
-                        <button onClick={handleRemoveEducation}>Remove section</button>
+                        <button onClick={() => handleRemoveEducation(index)}>Remove section</button>
                     </form>
                 </div>
                 )
