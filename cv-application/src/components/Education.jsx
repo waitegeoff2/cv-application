@@ -2,34 +2,17 @@ import { useState } from 'react';
 import '../styles/EducationStyles.css'
 
 export default function EducationForm({eduInfo, setEduInfo}) {
-    //school, setSchool, study, setStudy, start, setStart, end, setEnd
-    let index = 0;
-    //something to change the value of each one. takes the INDEX OF IT
-    //something to add a new one with its own index value. 
-    console.log(eduInfo)
+    console.log(eduInfo[0])
 
+    //first, copies the state array cause we don't mutate arrays
+    //goes to the index and field(object property) and then changes that to the value
+    //set the state to the new array with the new value
     function handleChange(index, value, field) {
         //copy and update, don't mutate original
         const newEducation = [...eduInfo];
         newEducation[index][field] = value;
+        console.log(newEducation)
         setEduInfo(newEducation)   
-    }
-
-    function handleSchoolChange(e) {
-        setSchool(e.target.value);
-        
-    }
-
-    function handleStudyChange(e) {
-        setStudy(e.target.value);
-    }
-
-    function handleDateStartChange(e) {
-        setStart(e.target.value);
-    }
-
-    function handleDateEndChange(e) {
-        setEnd(e.target.value);
     }
 
     function handleEdit() {

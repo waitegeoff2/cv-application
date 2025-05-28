@@ -51,17 +51,24 @@ function App() {
               <h2 className='preview-name'>{firstName} {lastName}</h2>
               <h4 className="phone-email">{phoneNum}. {email}</h4>
             </div>
-            {/* need to map here to go through education info object */}
             <div className="preview-education">
-              <h3 className="preview-education-title">Education</h3>
-              <div className="study-and-year">
-                <h4 className="preview-study">{educationInfo.study}</h4>
-                <h4 className="preview-study-year">{educationInfo.startDate}-{educationInfo.endDate}</h4>
+              <h3 className="section-title">Education</h3>
+              <div className="edu-gen-items">
+                {educationInfo.map((eduItem) => {
+                  return(
+                    <div className="education-gen">
+                      <div className="study-and-year">
+                        <h4 className="preview-study">{eduItem.study}</h4>
+                        <p className="preview-study-year">{eduItem.startDate}-{eduItem.endDate}</p>
+                      </div>
+                      <h4>{eduItem.school}</h4>
+                    </div>
+                  )
+                })}
               </div>
-              <h4>{educationInfo.school}</h4>
             </div>
             <div className="preview-work-experience">
-              <h3 className="work-title">Work Experience</h3>
+              <h3 className="section-title">Work Experience</h3>
               <div className="title-and-year">
                 <h4 className="preview-position">{positionName}</h4>
                 <h4 className="preview-position-dates">{dateStartWork}-{dateEndWork}</h4>
