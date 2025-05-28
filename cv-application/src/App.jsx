@@ -32,6 +32,14 @@ function App() {
   const [dateStartWork, setDateStartWork] = useState("");
   const [dateEndWork, setDateEndWork] = useState("");
 
+  const[workExperienceInfo, setWorkExperienceInfo] = useState([{
+    company: '',
+    position: '',
+    responsibilities: '',
+    startDate: '',
+    endDate: ''
+  }])
+
   return (
     <>
       <div className="app">
@@ -41,9 +49,8 @@ function App() {
             <h1 className="input-title">Input Your Details</h1>
             <div className="app-forms">
               <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
-                       {/*  <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} /> */}
               <EducationForm eduInfo={educationInfo} setEduInfo={setEducationInfo} />
-              <WorkExperienceForm company={companyName} setCompany={setCompanyName} position={positionName} setPosition={setPositionName} responsibility={mainResponsibilities} setResponsibility={setMainResponsibilities} startWork={dateStartWork} setStartWork={setDateStartWork} endWork={dateEndWork} setEndWork={setDateEndWork} />
+              <WorkExperienceForm workExperience={workExperienceInfo} setWorkExperience={setWorkExperienceInfo} />
             </div>
           </div>
           <div className="displaySidebar">
@@ -69,12 +76,20 @@ function App() {
             </div>
             <div className="preview-work-experience">
               <h3 className="section-title">Work Experience</h3>
-              <div className="title-and-year">
-                <h4 className="preview-position">{positionName}</h4>
-                <h4 className="preview-position-dates">{dateStartWork}-{dateEndWork}</h4>
+              <div className="work-gen-items">
+                {workExperienceInfo.map((workItem) => {
+                  return(
+                    <div className="work-gen">
+                      <div className="title-and-year">
+                        <h4 className="preview-position">{workItem.position}</h4>
+                        <h4 className="preview-position-dates">{workItem.startDate}-{workItem.endDate}</h4>
+                      </div>
+                      <h4 className="preview-company">{workItem.company}</h4>
+                      <p className="preview-responsibilities">{workItem.responsibilities}</p>
+                    </div>
+                  )
+                })}
               </div>
-              <h4 className="preview-company">{companyName}</h4>
-              <p className="preview-responsibilities">{mainResponsibilities}</p>
             </div>
             {/* POPULATE THIS WITH VALUES FROM FORMS */}
           </div>

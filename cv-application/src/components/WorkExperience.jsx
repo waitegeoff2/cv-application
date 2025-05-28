@@ -1,69 +1,62 @@
 import { useState } from 'react';
 import '../styles/WorkExperienceStyles.css'
 
-export default function WorkExperienceForm({company, setCompany, position, setPosition, responsibility, setResponsibility, startWork, setStartWork, endWork, setEndWork}) {
+export default function WorkExperienceForm({workExperience, setWorkExperience}) {
 
-    function handleCompanyChange(e) {
-        setCompany(e.target.value); 
+    function handleChange(index, value, field) {
+        const newWork = [...workExperience]
+        newWork[index][field] = value
+        setWorkExperience(newWork)
     }
 
-    function handlePositionChange(e) {
-        setPosition(e.target.value);
+    function handleNewWork() {
+        setWorkExperience([...workExperience, {company: '', position: '', responsibilities: '', startDate: '', endDate: '',}])
     }
 
-    function handleResponsibilitiesChange(e) {
-        setResponsibility(e.target.value);
-    }
+    function handleRemoveWork() {
 
-    function handleDateStartWorkChange(e) {
-        setStartWork(e.target.value);
-    }
-
-    function handleDateEndWorkChange(e) {
-        setEndWork(e.target.value);
-    }
-
-    function handleEdit() {
-        setCompany('')
-        setPosition('')
-        setResponsibility('')
-        setStartWork('')
-        setEndWork('')
     }
 
     return (
         <div className="workFormSection">
-            <h2 className="workTitle">Work Experience</h2>
-            <form className="workForm" onSubmit={e => e.preventDefault()}>
-                <input
-                    placeholder='Company'
-                    value={company}
-                    onChange={handleCompanyChange}
-                />
-                <input
-                    placeholder='Position'
-                    value={position}
-                    onChange={handlePositionChange}
-                />
-                <textarea
-                    placeholder='Main responsibilities'
-                    value={responsibility}
-                    onChange={handleResponsibilitiesChange}
-                />
-                <input
-                    type="number"
-                    placeholder='year start'
-                    value={startWork}
-                    onChange={handleDateStartWorkChange}
-                />
-                <input
-                    type="number"
-                    placeholder='year end'
-                    value={endWork}
-                    onChange={handleDateEndWorkChange}
-                />
-                <button onClick={handleEdit}>Restart section</button>
-            </form>
+        <h2 className="workTitle">Work Experience</h2>
+            {workExperience.map((workSet, index) => {
+                return(
+                <div key={index} className="work-form-gen">
+                    <form className="workForm" onSubmit={e => e.preventDefault()}>
+                        <input
+                            placeholder='Company'
+                            value={workSet.company}
+                            onChange={(e) => handleChange(index, e.target.value, "company")}
+                        />
+                        <input
+                            placeholder='Position'
+                            value={workSet.position}
+                            onChange={(e) => handleChange(index, e.target.value, "position")}
+                        />
+                        <textarea
+                            placeholder='Main responsibilities'
+                            value={workSet.responsibilities}
+                            onChange={(e) => handleChange(index, e.target.value, "responsibilities")}
+                        />
+                        <input
+                            type="number"
+                            placeholder='year start'
+                            value={workSet.startDate}
+                            onChange={(e) => handleChange(index, e.target.value, "startDate")}
+                        />
+                        <input
+                            type="number"
+                            placeholder='year end'
+                            value={workSet.endDate}
+                            onChange={(e) => handleChange(index, e.target.value, "endDate")}
+                        />
+                        <button onClick={handleNewWork}>Add new</button>
+                        <button onClick={handleRemoveWork}>Remove section</button>
+                    </form>
+                </div>
+                )
+            })}
         </div>
     )
 

@@ -15,10 +15,6 @@ export default function EducationForm({eduInfo, setEduInfo}) {
         setEduInfo(newEducation)   
     }
 
-    function handleEdit() {
-        setEduInfo([{school: '', study: '', startDate: '', endDate: '',}])
-    }
-
     function handleNewEducation() {
         setEduInfo([...eduInfo, {school: '', study: '', startDate: '', endDate: '',}])
     }
