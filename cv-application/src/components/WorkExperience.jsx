@@ -2,6 +2,8 @@ import '../styles/WorkExperienceStyles.css'
 
 export default function WorkExperienceForm({workExperience, setWorkExperience}) {
 
+    console.log(workExperience)
+    
     function handleChange(index, value, field) {
         const newWork = [...workExperience]
         newWork[index][field] = value
@@ -12,8 +14,10 @@ export default function WorkExperienceForm({workExperience, setWorkExperience}) 
         setWorkExperience([...workExperience, {company: '', position: '', responsibilities: '', startDate: '', endDate: '',}])
     }
 
-    function handleRemoveWork() {
-
+    function handleRemoveWork(index) {
+        const newWork = [...workExperience]
+        newWork.splice(index, 1)
+        setWorkExperience(newWork)
     }
 
     return (
@@ -51,7 +55,7 @@ export default function WorkExperienceForm({workExperience, setWorkExperience}) 
                             onChange={(e) => handleChange(index, e.target.value, "endDate")}
                         />
                         <button onClick={handleNewWork}>Add new</button>
-                        <button onClick={handleRemoveWork}>Remove section</button>
+                        <button onClick={() => handleRemoveWork(index)}>Remove section</button>
                     </form>
                 </div>
                 )

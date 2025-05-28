@@ -19,11 +19,10 @@ export default function EducationForm({eduInfo, setEduInfo}) {
     }
 
     function handleRemoveEducation(index) {
+        //going into the eduinfo array and splicing out that index
         const newEducation = [...eduInfo]
         newEducation.splice(index, 1)
-        console.log(newEducation)
         setEduInfo(newEducation)
-        //going into the eduinfo array and splicing out that index
     }
 
     return (
