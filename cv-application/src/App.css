@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+button {
+  background-color: rgb(230, 198, 230);
+  border-radius: 5px;
+}
+
 .app {
   display: flex;
   flex-direction: column;

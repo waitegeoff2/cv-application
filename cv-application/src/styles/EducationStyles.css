@@ -1,3 +1,9 @@
+.educationFormSection {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
 .educationForm {
     display: flex;
     flex-direction: column;

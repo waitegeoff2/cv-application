@@ -6,10 +6,6 @@ import WorkExperienceForm from './components/WorkExperience'
 
 
 function App() {
-  // you are adding STATE VARIABLES HERE (info, setinfo)
-  //keep the info at the top of the app
-  //pass it in to change it and then display it below
-
   //states for general info
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -17,10 +13,17 @@ function App() {
   const [email, setEmail] = useState('');
 
   //states for education
-  const [schoolName, setSchoolName] = useState('');
-  const [studyName, setStudyName] = useState('');
-  const [dateStart, setDateStart] = useState('');
-  const [dateEnd, setDateEnd] = useState('');
+  //make this an ARRAY so i can add to it
+  const [educationInfo, setEducationInfo] = useState([{
+    school: '',
+    study: '',
+    startDate: '',
+    endDate: ''
+  }])
+  // const [schoolName, setSchoolName] = useState('');
+  // const [studyName, setStudyName] = useState('');
+  // const [dateStart, setDateStart] = useState('');
+  // const [dateEnd, setDateEnd] = useState('');
 
   //states for work experience
   const [companyName, setCompanyName] = useState("");
@@ -38,7 +41,8 @@ function App() {
             <h2>Input Your Details</h2>
             <div className="app-forms">
               <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
-              <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} />
+                       {/*  <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} /> */}
+              <EducationForm eduInfo={educationInfo} setEduInfo={setEducationInfo} />
               <WorkExperienceForm company={companyName} setCompany={setCompanyName} position={positionName} setPosition={setPositionName} responsibility={mainResponsibilities} setResponsibility={setMainResponsibilities} startWork={dateStartWork} setStartWork={setDateStartWork} endWork={dateEndWork} setEndWork={setDateEndWork} />
             </div>
           </div>
@@ -47,13 +51,14 @@ function App() {
               <h2 className='preview-name'>{firstName} {lastName}</h2>
               <h4 className="phone-email">{phoneNum}. {email}</h4>
             </div>
+            {/* need to map here to go through education info object */}
             <div className="preview-education">
               <h3 className="preview-education-title">Education</h3>
               <div className="study-and-year">
-                <h4 className="preview-study">{studyName}</h4>
-                <h4 className="preview-study-year">{dateStart}-{dateEnd}</h4>
+                <h4 className="preview-study">{educationInfo.study}</h4>
+                <h4 className="preview-study-year">{educationInfo.startDate}-{educationInfo.endDate}</h4>
               </div>
-              <h4>{schoolName}</h4>
+              <h4>{educationInfo.school}</h4>
             </div>
             <div className="preview-work-experience">
               <h3 className="work-title">Work Experience</h3>
