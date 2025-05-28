@@ -1,6 +1,7 @@
 .workForm {
     display: flex;
     flex-direction: column;
+    background-color: rgb(215, 255, 255);
     gap: 5px;
     max-width: 300px;
     border: 1px solid black;

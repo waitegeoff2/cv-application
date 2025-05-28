@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  background-color: rgb(156, 255, 255);
+}
+
 button {
   background-color: rgb(230, 198, 230);
   border-radius: 5px;
@@ -22,8 +26,9 @@ button {
 .app-title {
   margin-top: 20px;
   margin-bottom: 40px;
+  font-size: 38px;
+  text-shadow: 5px 5px 10px rgb(198, 198, 198);
 }
-
 
 .app-body {
   display: flex;
@@ -34,7 +39,7 @@ button {
   display: flex;
   flex-direction: column;
   min-width: 50%;
-  gap: 30px;
+  gap: 15px;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -50,6 +55,7 @@ button {
 .displaySidebar {
   display: flex;
   flex-direction: column;
+  background-color: white;
   width: 700px;
   max-height: 600px;
   border: 1px solid black;

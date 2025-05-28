@@ -38,7 +38,7 @@ function App() {
         <h1 className='app-title'>Resume Builder</h1>
         <div className="app-body">
           <div className="app-form-section">
-            <h2>Input Your Details</h2>
+            <h1 className="input-title">Input Your Details</h1>
             <div className="app-forms">
               <GeneralInfoForm first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} phone={phoneNum} setPhone={setPhoneNum} mail={email} setMail={setEmail} />
                        {/*  <EducationForm school={schoolName} setSchool={setSchoolName} study={studyName} setStudy={setStudyName} start={dateStart} setStart={setDateStart} end={dateEnd} setEnd={setDateEnd} /> */}
